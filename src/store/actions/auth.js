@@ -7,9 +7,10 @@ export const authStart = (username,password) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         }
-        fetch('/auth',requestOptions).then(response => {
+        return fetch('/auth',requestOptions).then(response => {
            localStorage.setItem('authToken',response);
-           dispatch(authSuccess(response.username));
+           const res = JSON.parse(response);
+           dispatch(authSuccess(res.username));
         })
         .catch(error => {
             dispatch(authFail(error));

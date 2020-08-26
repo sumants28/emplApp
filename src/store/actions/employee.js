@@ -7,7 +7,7 @@ export const getEmp = () => {
             method: 'GET',
             headers: { 'Content-Type': 'application/json','Authorization':token ? token.token:'' }
         }
-        fetch('/employees',requestOptions).then(response => {
+        return fetch('/employees',requestOptions).then(response => {
             dispatch(saveEmp(JSON.parse(response)));
         }).catch(error => {
             console.log(error);
@@ -30,7 +30,7 @@ export const add = (emp) => {
             headers: { 'Content-Type': 'application/json','Authorization':token ? token.token:'' },
             body: JSON.stringify(emp)
         }
-        fetch('/add',requestOptions).then(response => {
+        return fetch('/add',requestOptions).then(response => {
             dispatch(getEmp());
         }).catch(error => {
             console.log(error);
@@ -46,7 +46,7 @@ export const deleteEmp = (code) => {
             headers: { 'Content-Type': 'application/json','Authorization':token ? token.token:'' },
             body: JSON.stringify({code})
         }
-        fetch('/delete',requestOptions).then(response => {
+        return fetch('/delete',requestOptions).then(response => {
             dispatch(getEmp());
         }).catch(error => {
             console.log(error);
