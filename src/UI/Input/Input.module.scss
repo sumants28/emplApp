@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    & .MuiTextField-root {
+        max-width: 250px
+    }
+}

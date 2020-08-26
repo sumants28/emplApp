@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    & .MuiButtonBase-root {
+        width:100px
+    }
+}
